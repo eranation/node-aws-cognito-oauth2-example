@@ -1,7 +1,8 @@
 var express = require('express')
 var session = require('express-session')
 var passport = require('passport')
-var OAuth2Strategy = require('passport-oauth2').Strategy
+//var OAuth2Strategy = require('passport-oauth2').Strategy
+var AuthorizationCodeStrategy = require('passport-oauth2-code').Strategy
 var path = require('path')
 var logger = require('morgan')
 var cookieParser = require('cookie-parser')
@@ -25,6 +26,15 @@ app.use(session(sessionOptions))
 app.use(passport.initialize())
 app.use(passport.session())
 
+
+passport.use(new AuthorizationCodeStrategy(
+  function(clientId, clientSecret, done) {
+//TODO:
+  }
+));
+
+
+/*
 passport.use(new OAuth2Strategy({
   authorizationURL: `https://${config.COGNITO_DOMAIN}/login`,
   tokenURL: `https://${config.COGNITO_DOMAIN}/oauth2/token`,
@@ -40,6 +50,9 @@ function (accessToken, refreshToken, profile, done) {
 
   done(null, { groups: groups, accessToken: accessToken }) // Keep accessToken for passing to API calls
 }))
+*/
+
+
 passport.serializeUser(function (user, done) {
   done(null, user)
 })

@@ -17,6 +17,7 @@
     "morgan": "~1.9.0",
     "passport": "^0.4.0",
     "passport-oauth2": "^1.4.0",
+    "passport-oauth2-code": "^0.1.6",
     "pug": "2.0.0-beta11",
     "serve-favicon": "~2.4.5"
   },

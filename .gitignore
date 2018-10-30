@@ -43,3 +43,5 @@ errorShots
 
 # ts
 dist
+.idea/
+node-aws-cognito-oauth2-example.iml
